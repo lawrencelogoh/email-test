@@ -6,6 +6,10 @@ import styles from '@/styles/Home.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+    
+  const now = new Date();
+  const currentDateTime = now.toLocaleString();
+
   const handleEmail = async (event) => {
   event.preventDefault();
   const res = await fetch("/api/send-email", {
@@ -28,6 +32,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
+      <h1>{currentDateTime}</h1>
       <form onSubmit={handleEmail}>
       <button type="submit">Send Email</button>
       </form>
